@@ -6,7 +6,20 @@
              xmlns:local="clr-namespace:Flapy_bird"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
-    <Grid>
-            
-    </Grid>
+    <Canvas>
+        <Image x:Name="ciel" Height="449" Source="/Images/Ciel.png"  Stretch="Fill" Canvas.Top="0" Width="800"/>
+        <Image x:Name="ciel2" Height="445" Canvas.Left="800" Source="/Images/Ciel.png" Stretch="Fill" Canvas.Top="0" />
+
+
+
+        <Image x:Name="flapy" Height="164" Canvas.Left="144" Source="/Images/FlappyBird.png" Stretch="Fill" Canvas.Top="196" Width="152"/>
+
+        <Image x:Name="sol" Height="1052" Source="/Images/Sol.png" Stretch="Fill" Canvas.Top="-501" Width="800" Canvas.Left="795" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image x:Name="sol2" Height="1052" Source="/Images/Sol.png" Stretch="Fill" Canvas.Top="-502" Width="800" Canvas.Left="-4" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        
+
+
+    </Canvas>
 </UserControl>
+    
+    
