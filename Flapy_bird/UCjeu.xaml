@@ -8,15 +8,49 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Canvas>
         <Image x:Name="ciel" Height="449" Source="/Images/Ciel.png"  Stretch="Fill" Canvas.Top="0" Width="800"/>
-        <Image x:Name="ciel2" Height="445" Canvas.Left="800" Source="/Images/Ciel.png" Stretch="Fill" Canvas.Top="0" />
+        <Image x:Name="ciel2" Height="445" Canvas.Left="800" Source="/Images/Ciel.png" Stretch="Fill" Canvas.Top="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="792" />
 
 
 
-        <Image x:Name="flapy" Height="164" Canvas.Left="144" Source="/Images/FlappyBird.png" Stretch="Fill" Canvas.Top="196" Width="152"/>
+        <Image x:Name="flapy" Height="60" Canvas.Left="50" Source="/Images/FlappyBird.png" Stretch="Fill" Canvas.Top="252" Width="60"/>
 
-        <Image x:Name="sol" Height="1052" Source="/Images/Sol.png" Stretch="Fill" Canvas.Top="-501" Width="800" Canvas.Left="795" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image x:Name="sol2" Height="1052" Source="/Images/Sol.png" Stretch="Fill" Canvas.Top="-502" Width="800" Canvas.Left="-4" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        
+        <Image x:Name="sol" Height="1052" Source="/Images/Sol.png" Stretch="Fill" Canvas.Top="-501" Width="800" Canvas.Left="795" />
+        <Image x:Name="sol2" Height="1052" Source="/Images/Sol.png" Stretch="Fill" Canvas.Top="-502" Width="800" Canvas.Left="-1" />
+
+        <Image x:Name="batiment" Height="1038" Canvas.Left="-4" Source="/Images/Batiments.png" Stretch="Fill" Canvas.Top="-510" Width="800" HorizontalAlignment="Left" VerticalAlignment="Center"  />
+        <Image x:Name="batiment2" Height="1038" Canvas.Left="796" Source="/Images/Batiments.png" Stretch="Fill" Canvas.Top="-512" Width="796" />
+
+        <Image x:Name="piece1" Height="47" Canvas.Left="568" Source="/Images/piece_sans_fond.png" Stretch="Fill" Canvas.Top="143" Width="102" />
+
+        <Image x:Name="tuyau1" Height="158" Canvas.Left="412" Source="/Images/tuyau.png" Stretch="Fill" Canvas.Top="208" Width="202"/>
+        <Image  x:Name="tuyau2" Height="120" Canvas.Left="418" Source="/Images/tuyau.png" Stretch="Fill" Canvas.Top="-4" Width="198" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-179.685"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+
+
+        </Image>
+        <Image x:Name="tuyau3" Height="196" Canvas.Left="615" Source="/Images/tuyau.png" Stretch="Fill" Canvas.Top="-2" Width="198" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.141"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image  x:Name="tuyau4" Height="68" Canvas.Left="622" Source="/Images/tuyau.png" Stretch="Fill" Canvas.Top="296" Width="186" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+
+
+
+
 
 
     </Canvas>
