@@ -24,5 +24,30 @@ namespace Flapy_bird
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Parametre2_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnParametre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
