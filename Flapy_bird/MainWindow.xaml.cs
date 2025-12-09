@@ -16,7 +16,9 @@ namespace Flapy_bird
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        public static string Perso { get; set; }
+        public static int Pasflopy { get; set; } = 2;
+        public static int Paspiece { get; set; } = 5;
 
         public MainWindow()
         {
