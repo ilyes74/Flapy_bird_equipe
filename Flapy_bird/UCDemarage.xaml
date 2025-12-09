@@ -7,12 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Image Source="/Images/Ciel.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800"/>
         <Image Margin="0,0,0,-138" Source="/Images/Herbes.png" Stretch="Fill"/>
         <Image Margin="262,84,262,84" Source="/Images/FlappyBird.png" Stretch="Fill"/>
         <TextBox x:Name="Titre" TextWrapping="Wrap" Text="Speedy Wings " Width="512" TextChanged="TextBox_TextChanged" Background="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" SelectionOpacity="1" FontSize="75" Margin="0,12,0,0" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button x:Name="Jouer" Content="JOUER" Margin="281,383,281,0" Click="Button_Click" FontSize="50"/>
-        <Image Margin="674,0,0,325" Source="/Images/Parametre.png" Stretch="Fill"/>
+        <Button x:Name="btnJouer" Content="JOUER" Margin="281,383,281,0" Click="Button_Click" FontSize="50" AutomationProperties.IsOffscreenBehavior="Offscreen" ClickMode="Press"/>
+        <Image x:Name="ImageParametre" Margin="674,0,0,325" Source="/Images/Parametre.png" Stretch="Fill"/>
         <Button x:Name="btnParametre" Content="" Margin="674,10,0,336" Background="{x:Null}" Click="btnParametre_Click" BorderBrush="{x:Null}"/>
 
     </Grid>

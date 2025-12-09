@@ -30,7 +30,7 @@ namespace Flapy_bird
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Jouer_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -46,6 +46,11 @@ namespace Flapy_bird
         }
 
         private void btnParametre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
