@@ -1,38 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Flapy_bird
 {
-
-    /// <summary>
-    /// Logique d'interaction pour UCjeu.xaml
-    /// </summary>
     public partial class UCjeu : UserControl
     {
-        // On reprend tes variables statiques et la structure exacte
         private DispatcherTimer minuterie;
 
-        // --- Variables pour la physique (indispensables pour Flappy Bird) ---
+        // --- Variables Physique ---
         private double vitesseVerticale = 0;
-        private double gravite = 0.6;   // Force qui tire vers le bas
-        private double forceSaut = -10; // Force vers le haut
-        private int vitesseDecor = 5;   // Vitesse de défilement vers la gauche
+        private double gravite = 0.5;   // Force qui tire vers le bas
+        private double forceSaut = -8;  // Force du saut (négatif car on va vers le haut du Canvas)
+        private int vitesseDecor = 5;   // Vitesse de défilement des tuyaux
 
         public UCjeu()
         {
@@ -40,116 +24,127 @@ namespace Flapy_bird
             InitTimer();
         }
 
-        // Comme dans ton code Père Noël : On attache les touches quand le contrôle est chargé
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            // Cette méthode permet de capter les touches même si on n'a pas cliqué sur le jeu
-            Application.Current.MainWindow.KeyDown += canvasJeu_KeyDown;
-        }
+            // Important : On met le focus pour que le clavier marche tout de suite
+            this.Focus();
 
-        // Gestion des touches (copié collé adapté de ton code)
-        private void canvasJeu_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Space)
+            // On s'abonne aux touches de la fenêtre principale
+            var window = Window.GetWindow(this);
+            if (window != null)
             {
-                // Si le timer est arrêté (perdu ou pause), on relance
-                if (!minuterie.IsEnabled)
-                {
-                    // Reset simple pour recommencer si on a perdu
-                    Canvas.SetTop(imgflapy, 200);
-                    vitesseVerticale = 0;
-                    minuterie.Start();
-                }
-                else
-                {
-                    // ACTION DE SAUT (remplace ton "gauche/droite")
-                    Sauter();
-                }
+                window.KeyDown += canvasJeu_KeyDown;
             }
         }
 
-        // Nouvelle méthode "Sauter" (équivalent de tes méthodes gauche/droite)
+        // --- 1. GESTION DES TOUCHES (CORRIGÉE) ---
+        private void canvasJeu_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Dans Flappy Bird, Espace ou Haut = SAUTER
+            if (e.Key == Key.Space || e.Key == Key.Up)
+            {
+                // Si le timer est arrêté (pause ou début), on le lance
+                if (!minuterie.IsEnabled)
+                {
+                    minuterie.Start();
+                }
+
+                Sauter();
+            }
+        }
+
         private void Sauter()
         {
+            // On inverse la gravité pour monter d'un coup
             vitesseVerticale = forceSaut;
+
+            // Si tu as une image pour le saut, tu peux la mettre ici
+            // imgflapy.Source = flapyhaut; 
         }
 
         private void InitTimer()
         {
             minuterie = new DispatcherTimer();
-            minuterie.Interval = TimeSpan.FromMilliseconds(16);
+            minuterie.Interval = TimeSpan.FromMilliseconds(20); // ~50 images/seconde
             minuterie.Tick += Jeu;
-            minuterie.Start();
+            // On ne lance pas le timer tout de suite, on attend le premier saut
         }
 
-        // Le coeur du jeu (Comme ta méthode "Jeu" du Père Noël)
+        // --- 2. BOUCLE PRINCIPALE DU JEU ---
         private void Jeu(object? sender, EventArgs e)
         {
-            // 1. GESTION DE L'OISEAU (Gravité)
-            // C'est la même logique que ton cadeau qui tombe, mais avec accélération
+            // A. Gravité de l'oiseau (Ta logique)
             vitesseVerticale += gravite;
-
             double yFlapy = Canvas.GetTop(imgflapy);
-            double nvFlapy = yFlapy + vitesseVerticale;
-            Canvas.SetTop(imgflapy, nvFlapy);
 
-            // 2. GESTION DES DÉCORS (Tuyaux qui avancent vers la gauche)
-            // J'appelle une méthode pour éviter de copier-coller 4 fois le code
-            BougeTuyau(imgtuyau1);
-            BougeTuyau(imgtuyau2);
-            BougeTuyau(imgtuyau3);
-            BougeTuyau(imgtuyau4);
+            // Sécurité si position inconnue
+            if (double.IsNaN(yFlapy)) yFlapy = 200;
 
-            BougeTuyau(imgpiece1); // Si tu veux bouger la pièce aussi
+            Canvas.SetTop(imgflapy, yFlapy + vitesseVerticale);
 
-            // On peut aussi bouger le sol
-            BougeTuyau(imgsol);
-            BougeTuyau(imgsol2);
+            // B. Faire avancer les tuyaux (NOUVEAU - Indispensable)
+            BougeDecor(imgtuyau1);
+            BougeDecor(imgtuyau2);
+            BougeDecor(imgtuyau3);
+            BougeDecor(imgtuyau4);
 
-            // 3. COLLISIONS (Vérifier si on touche)
+            // Si tu as un sol qui bouge :
+            // BougeDecor(imgsol); 
+
+            // C. Vérifier si on a perdu
             VerifCollision();
         }
 
-        // Cette méthode remplace ta logique "if (nvpernoel >= 0)..."
-        // Elle sert à déplacer n'importe quelle image vers la gauche et la remettre à droite
-        private void BougeTuyau(Image image)
+        // --- 3. DÉPLACEMENT DU DÉCOR (NOUVEAU) ---
+        private void BougeDecor(Image image)
         {
-            double xImage = Canvas.GetLeft(image);
-            double nvImage = xImage - vitesseDecor; // On va vers la gauche (-)
+            double x = Canvas.GetLeft(image);
 
-            Canvas.SetLeft(image, nvImage);
+            // Sécurité anti-bug (si pas défini dans le XAML)
+            if (double.IsNaN(x)) x = 800;
 
-            // Si l'image sort complètement à gauche, on la remet à droite
-            if (Canvas.GetLeft(image) + image.Width <= 0)
+            // On déplace vers la GAUCHE
+            x -= vitesseDecor;
+
+            // Si le tuyau sort à gauche de l'écran
+            if (x < -image.ActualWidth)
             {
-                Canvas.SetLeft(image, 800); // 800 est la largeur de ton écran
+                // On le remet tout à droite
+                x = 800;
             }
+
+            Canvas.SetLeft(image, x);
         }
 
+        // --- 4. COLLISIONS (Ton code gardé tel quel) ---
         private void VerifCollision()
         {
-            // Création des rectangles (Comme dans ton constructeur Père Noël)
-            Rect rFlapy = new Rect(Canvas.GetLeft(imgflapy), Canvas.GetTop(imgflapy), imgflapy.Width, imgflapy.Height);
+            // Création du rectangle oiseau
+            Rect rFlapy = new Rect(Canvas.GetLeft(imgflapy), Canvas.GetTop(imgflapy), imgflapy.Width - 10, imgflapy.Height - 10);
 
             // Vérification sol/plafond
             if (Canvas.GetTop(imgflapy) > 380 || Canvas.GetTop(imgflapy) < -50)
             {
-                minuterie.Stop();
+                minuterie.Stop(); // Game Over
             }
 
-            // Vérification tuyaux (exemple avec 2 tuyaux, tu peux ajouter les autres)
+            // Vérification tuyaux
             if (Touche(rFlapy, imgtuyau1) || Touche(rFlapy, imgtuyau2) || Touche(rFlapy, imgtuyau3) || Touche(rFlapy, imgtuyau4))
             {
-                minuterie.Stop();
+                minuterie.Stop(); // Game Over
             }
         }
 
-        // Petite fonction d'aide pour la collision (utilise IntersectsWith vu en cours normalement)
         private bool Touche(Rect r1, Image cible)
         {
-            Rect r2 = new Rect(Canvas.GetLeft(cible), Canvas.GetTop(cible), cible.ActualWidth, cible.ActualHeight);
+            // Sécurité pour récupérer les positions
+            double x = Canvas.GetLeft(cible);
+            double y = Canvas.GetTop(cible);
+            if (double.IsNaN(x)) x = 0;
+            if (double.IsNaN(y)) y = 0;
+
+            Rect r2 = new Rect(x, y, cible.ActualWidth, cible.ActualHeight);
             return r1.IntersectsWith(r2);
         }
     }
 }
-

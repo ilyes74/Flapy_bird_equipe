@@ -9,11 +9,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Batiments.png" />
     <None Remove="Images\Ciel.png" />
+    <None Remove="Images\FlappyBird.png" />
+    <None Remove="Images\Herbes.png" />
+    <None Remove="Images\Parametre.png" />
+    <None Remove="Images\piece.png" />
+    <None Remove="Images\piece_sans_fond.png" />
+    <None Remove="Images\Sol.png" />
+    <None Remove="Images\tuyau.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Batiments.png" />
     <Resource Include="Images\Ciel.png" />
+    <Resource Include="Images\FlappyBird.png" />
+    <Resource Include="Images\Herbes.png" />
+    <Resource Include="Images\Parametre.png" />
+    <Resource Include="Images\piece.png" />
+    <Resource Include="Images\piece_sans_fond.png" />
+    <Resource Include="Images\Sol.png" />
+    <Resource Include="Images\tuyau.png" />
   </ItemGroup>
 
 </Project>

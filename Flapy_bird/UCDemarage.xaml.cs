@@ -53,6 +53,12 @@ namespace Flapy_bird
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+     
+        }
+
+        private void btnJouer_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

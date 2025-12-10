@@ -23,20 +23,20 @@ namespace Flapy_bird
         public MainWindow()
         {
             InitializeComponent();
-            AfficherDemarrage();
+            AfficherJeu();
             //AfficherReglesJeux();
         }
 
-        private void AfficherDemarrage()
+        private void AfficherJeu()
         {
             UCDemarage uc = new UCDemarage(); // crée et charge l'écran de démarrage
             ZoneDemarrage.Content = uc; // associe l'écran au conteneur 
-            uc.btnJouer.Click += AfficherReglesJeux; //
+            uc.btnJouer.Click += AfficherUCJeu; //
         }
 
-        private void AfficherReglesJeux(object sender, RoutedEventArgs e)
+        private void AfficherUCJeu(object sender, RoutedEventArgs e)
         {
-            UCReglesJeu uc = new UCReglesJeu();
+            UCjeu uc = new UCjeu();
             ZoneDemarrage.Content = uc;
         }
     }
