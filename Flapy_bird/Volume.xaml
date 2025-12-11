@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Flapy_bird.VolumeSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="300" Background="White">
+    <StackPanel Margin="20" Background="White">
+        <TextBlock FontSize="16" Height="39" ><Run Language="fr-fr" Text="&#x9;"/><Run Text="V"/><Run Text="olume Principal"/></TextBlock>
+        <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" Value="0.5" IsSnapToTickEnabled="True" TickFrequency="0.1" ValueChanged="Volume" RenderTransformOrigin="1,1" Height="47" Width="260" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBlock Width="64" Height="34"><Run Text="Valeur : "/><Run Text=" "/><Run Language="fr-fr" Text="50"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+    </StackPanel>
+</UserControl>
