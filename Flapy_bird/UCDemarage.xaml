@@ -34,9 +34,9 @@
 
         </StackPanel>
 
-        <Image Margin="34,140,595,74" Source="/Images/FlappyBird.png" Stretch="Fill"/>
+        <Image Margin="34,231,595,151" Source="/Images/FlappyBird.png" Stretch="Fill"/>
 
-        <Image Margin="599,114,-76,114" Source="/Images/tuyau.png" Stretch="Fill"/>
+        <Image Margin="573,223,-50,114" Source="/Images/tuyau.png" Stretch="Fill"/>
 
     </Grid>
 
