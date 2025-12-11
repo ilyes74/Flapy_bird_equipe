@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using SpeedyWings;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,30 +15,57 @@ namespace Flapy_bird
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public static string Perso { get; set; }
-        public static int Pasflopy { get; set; } = 2;
-        public static int Paspiece { get; set; } = 5;
+   
+        public partial class MainWindow : Window
 
-        public MainWindow()
         {
-            InitializeComponent();
-            AfficherJeu();
-            //AfficherReglesJeux();
-        }
 
-        private void AfficherJeu()
-        {
-            UCDemarage uc = new UCDemarage(); // crée et charge l'écran de démarrage
-            ZoneDemarrage.Content = uc; // associe l'écran au conteneur 
-            uc.btnJouer.Click += AfficherUCJeu; //
-        }
+            public MainWindow()
 
-        private void AfficherUCJeu(object sender, RoutedEventArgs e)
-        {
-            UCjeu uc = new UCjeu();
-            ZoneDemarrage.Content = uc;
+            {
+
+                InitializeComponent();
+
+                // Au démarrage, on affiche le menu
+
+                AfficherDemarrage();
+
+            }
+
+            // --- Méthodes de Navigation ---
+
+            public void AfficherDemarrage()
+
+            {
+
+                // On charge l'UserControl UCDemarrage
+
+                ContenuPrincipal.Content = new UCDemarrage(this);
+
+            }
+
+            public void AfficherJeu()
+
+            {
+
+                ContenuPrincipal.Content = new UCjeu(this);
+
+            }
+
+            public void AfficherRegles()
+
+            {
+
+                ContenuPrincipal.Content = new UCReglesJeu(this);
+
+            }
+
+            public void AfficherSkins()
+
+            {
+
+                // ContenuPrincipal.Content = new UCSkins(this); (A faire plus tard)
+
+            }
         }
     }
-}
