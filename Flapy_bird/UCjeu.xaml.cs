@@ -1,150 +1,157 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
+using System.Windows.Media; // Pour RotateTransform
 using System.Windows.Threading;
 
 namespace Flapy_bird
 {
     public partial class UCjeu : UserControl
     {
+        // --- 1. VARIABLES GLOBALES ---
         private DispatcherTimer minuterie;
 
-        // --- Variables Physique ---
+        // Vitesses de défilement (comme dans ton Infinite Runner)
+        private int pasSol = 5;      // Vitesse rapide (Premier plan)
+        private int pasFond = 2;     // Vitesse lente (Arrière plan)
+
+        // Physique de l'oiseau
         private double vitesseVerticale = 0;
-        private double gravite = 0.5;   // Force qui tire vers le bas
-        private double forceSaut = -8;  // Force du saut (négatif car on va vers le haut du Canvas)
-        private int vitesseDecor = 5;   // Vitesse de défilement des tuyaux
+        private double gravite = 0.5;
+        private double forceSaut = -8;
 
         public UCjeu()
         {
             InitializeComponent();
-            InitTimer();
+            InitializeTimer();
         }
 
+        // --- 2. INITIALISATION ---
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            // Important : On met le focus pour que le clavier marche tout de suite
+            // On active la réception des touches du clavier
             this.Focus();
-
-            // On s'abonne aux touches de la fenêtre principale
-            var window = Window.GetWindow(this);
-            if (window != null)
-            {
-                window.KeyDown += canvasJeu_KeyDown;
-            }
+            Window fenetre = Window.GetWindow(this);
+            if (fenetre != null) fenetre.KeyDown += Window_KeyDown;
         }
 
-        // --- 1. GESTION DES TOUCHES (CORRIGÉE) ---
-        private void canvasJeu_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Dans Flappy Bird, Espace ou Haut = SAUTER
-            if (e.Key == Key.Space || e.Key == Key.Up)
-            {
-                // Si le timer est arrêté (pause ou début), on le lance
-                if (!minuterie.IsEnabled)
-                {
-                    minuterie.Start();
-                }
-
-                Sauter();
-            }
-        }
-
-        private void Sauter()
-        {
-            // On inverse la gravité pour monter d'un coup
-            vitesseVerticale = forceSaut;
-
-            // Si tu as une image pour le saut, tu peux la mettre ici
-            // imgflapy.Source = flapyhaut; 
-        }
-
-        private void InitTimer()
+        private void InitializeTimer()
         {
             minuterie = new DispatcherTimer();
-            minuterie.Interval = TimeSpan.FromMilliseconds(20); // ~50 images/seconde
+            minuterie.Interval = TimeSpan.FromMilliseconds(16); // ~60 FPS
             minuterie.Tick += Jeu;
-            // On ne lance pas le timer tout de suite, on attend le premier saut
+            minuterie.Start(); // Le jeu démarre tout de suite
         }
 
-        // --- 2. BOUCLE PRINCIPALE DU JEU ---
+        // --- 3. BOUCLE DE JEU (Exécutée 60 fois par seconde) ---
         private void Jeu(object? sender, EventArgs e)
         {
-            // A. Gravité de l'oiseau (Ta logique)
-            vitesseVerticale += gravite;
-            double yFlapy = Canvas.GetTop(imgflapy);
+            // A. PHYSIQUE DE L'OISEAU
+            vitesseVerticale += gravite; // La gravité augmente la vitesse de chute
 
-            // Sécurité si position inconnue
-            if (double.IsNaN(yFlapy)) yFlapy = 200;
+            double y = Canvas.GetTop(imgflapy);
+            // On applique le mouvement vertical
+            Canvas.SetTop(imgflapy, y + vitesseVerticale);
 
-            Canvas.SetTop(imgflapy, yFlapy + vitesseVerticale);
+            // Rotation de l'oiseau (nez vers le bas quand il tombe)
+            imgflapy.RenderTransform = new RotateTransform(vitesseVerticale * 3);
+            imgflapy.RenderTransformOrigin = new Point(0.5, 0.5);
 
-            // B. Faire avancer les tuyaux (NOUVEAU - Indispensable)
-            BougeDecor(imgtuyau1);
-            BougeDecor(imgtuyau2);
-            BougeDecor(imgtuyau3);
-            BougeDecor(imgtuyau4);
+            // B. DÉPLACEMENT DU DÉCOR (Noms de tes images XAML)
+            DeplaceDecor(ciel, pasFond);
+            DeplaceDecor(ciel2, pasFond);
 
-            // Si tu as un sol qui bouge :
-            // BougeDecor(imgsol); 
+            DeplaceDecor(imgbatiment, pasFond);
+            DeplaceDecor(imgbatiment2, pasFond);
 
-            // C. Vérifier si on a perdu
+            DeplaceDecor(imgsol, pasSol);
+            DeplaceDecor(imgsol2, pasSol);
+
+            // C. DÉPLACEMENT DES OBSTACLES (TUYAUX)
+            // On utilise ta méthode Deplacecaillou (renommée ou telle quelle)
+            DeplaceObstacle(imgtuyau1, pasSol);
+            DeplaceObstacle(imgtuyau2, pasSol);
+            DeplaceObstacle(imgtuyau3, pasSol);
+            DeplaceObstacle(imgtuyau4, pasSol);
+
+            // On bouge aussi la pièce
+            DeplaceObstacle(imgpiece1, pasSol);
+
+            // D. COLLISIONS
             VerifCollision();
         }
 
-        // --- 3. DÉPLACEMENT DU DÉCOR (NOUVEAU) ---
-        private void BougeDecor(Image image)
+        // --- 4. TES MÉTHODES DE DÉPLACEMENT ---
+
+        // Pour le décor infini (Ciel, Sol, Batiments)
+        public void DeplaceDecor(Image image, int pas)
         {
             double x = Canvas.GetLeft(image);
+            Canvas.SetLeft(image, x - pas); // Déplace vers la gauche
 
-            // Sécurité anti-bug (si pas défini dans le XAML)
-            if (double.IsNaN(x)) x = 800;
+            // Si l'image est entièrement sortie à gauche
+            if (x <= -image.ActualWidth)
+            {
+                // On la replace pile à la suite de l'autre (800px)
+                Canvas.SetLeft(image, image.ActualWidth - pas);
+            }
+        }
 
-            // On déplace vers la GAUCHE
-            x -= vitesseDecor;
+        // Pour les objets qui reviennent en boucle (Tuyaux, Pièces)
+        // C'est l'équivalent de ta méthode "Deplacecaillou"
+        public void DeplaceObstacle(Image image, int pas)
+        {
+            double x = Canvas.GetLeft(image);
+            Canvas.SetLeft(image, x - pas);
 
-            // Si le tuyau sort à gauche de l'écran
+            // Si l'objet sort de l'écran
             if (x < -image.ActualWidth)
             {
-                // On le remet tout à droite
-                x = 800;
-            }
+                Canvas.SetLeft(image, 800); // On le remet au début (droite)
 
-            Canvas.SetLeft(image, x);
+                // Ici, tu pourrais ajouter du code pour changer la hauteur (Top) aléatoirement
+            }
         }
 
-        // --- 4. COLLISIONS (Ton code gardé tel quel) ---
+        // --- 5. GESTION DU CLAVIER ---
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space || e.Key == Key.Up)
+            {
+                // Le saut modifie la vitesse verticale instantanément
+                vitesseVerticale = forceSaut;
+            }
+        }
+
+        // --- 6. COLLISIONS ---
         private void VerifCollision()
         {
-            // Création du rectangle oiseau
-            Rect rFlapy = new Rect(Canvas.GetLeft(imgflapy), Canvas.GetTop(imgflapy), imgflapy.Width - 10, imgflapy.Height - 10);
+            // Vérif Sol et Plafond
+            double y = Canvas.GetTop(imgflapy);
+            if (y > 380 || y < -20) FinDuJeu();
 
-            // Vérification sol/plafond
-            if (Canvas.GetTop(imgflapy) > 380 || Canvas.GetTop(imgflapy) < -50)
-            {
-                minuterie.Stop(); // Game Over
-            }
+            // Vérif Tuyaux
+            // On crée une Hitbox légèrement plus petite (-10) pour être gentil avec le joueur
+            Rect rOiseau = new Rect(Canvas.GetLeft(imgflapy) + 5, y + 5, imgflapy.ActualWidth - 10, imgflapy.ActualHeight - 10);
 
-            // Vérification tuyaux
-            if (Touche(rFlapy, imgtuyau1) || Touche(rFlapy, imgtuyau2) || Touche(rFlapy, imgtuyau3) || Touche(rFlapy, imgtuyau4))
+            if (Touche(rOiseau, imgtuyau1) || Touche(rOiseau, imgtuyau2) ||
+                Touche(rOiseau, imgtuyau3) || Touche(rOiseau, imgtuyau4))
             {
-                minuterie.Stop(); // Game Over
+                FinDuJeu();
             }
         }
 
-        private bool Touche(Rect r1, Image cible)
+        private bool Touche(Rect r1, Image obstacle)
         {
-            // Sécurité pour récupérer les positions
-            double x = Canvas.GetLeft(cible);
-            double y = Canvas.GetTop(cible);
-            if (double.IsNaN(x)) x = 0;
-            if (double.IsNaN(y)) y = 0;
-
-            Rect r2 = new Rect(x, y, cible.ActualWidth, cible.ActualHeight);
+            Rect r2 = new Rect(Canvas.GetLeft(obstacle), Canvas.GetTop(obstacle), obstacle.ActualWidth, obstacle.ActualHeight);
             return r1.IntersectsWith(r2);
+        }
+
+        private void FinDuJeu()
+        {
+            minuterie.Stop();
+            // Ici tu peux afficher un MessageBox ou changer d'écran
         }
     }
 }

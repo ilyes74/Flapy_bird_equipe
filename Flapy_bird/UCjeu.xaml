@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:Flapy_bird"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" 
-             Focusable="True">
+             Focusable="True"
+             Loaded="UserControl_Loaded" >
     
     <Canvas x:Name="MyCanvas" Background="#87CEEB">
         <Image x:Name="ciel" Source="/Images/Ciel.png" Stretch="Fill" 
