@@ -12,53 +12,50 @@ using System.Windows.Shapes;
 
 namespace Flapy_bird
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-   
-        public partial class MainWindow : Window
+
+    public partial class MainWindow : Window
+
+    {
+
+        public MainWindow()
 
         {
 
-            public MainWindow()
+            InitializeComponent();
 
-            {
 
-                InitializeComponent();
 
-                // Au démarrage, on affiche le menu
+            AfficherDemarrage();
 
-                AfficherDemarrage();
+        }
 
-            }
+        
 
-            // --- Méthodes de Navigation ---
+        public void AfficherDemarrage()
 
-            public void AfficherDemarrage()
+        {
 
-            {
+           
 
-                // On charge l'UserControl UCDemarrage
+            ContenuPrincipal.Content = new UCDemarrage(this);
 
-                ContenuPrincipal.Content = new UCDemarrage(this);
+        }
 
-            }
+        public void AfficherJeu()
 
-            public void AfficherJeu()
+        {
 
-            {
+            ContenuPrincipal.Content = new UCjeu(this);
 
-                ContenuPrincipal.Content = new UCjeu(this);
+        }
 
-            }
+        public void AfficherRegles()
 
-            public void AfficherRegles()
+        {
 
-            {
+            ContenuPrincipal.Content = new UCReglesJeu(this);
 
-                ContenuPrincipal.Content = new UCReglesJeu(this);
-
-            }
+        }
 
         public void AfficherSkins()
         {

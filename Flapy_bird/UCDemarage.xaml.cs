@@ -11,7 +11,7 @@ namespace SpeedyWings
 
     {
 
-        private MainWindow mainWin;
+        private MainWindow mainWindow;
 
   
 
@@ -21,7 +21,7 @@ namespace SpeedyWings
 
             InitializeComponent();
 
-            this.mainWin = w;
+            this.mainWindow = w;
 
         }
 
@@ -29,7 +29,7 @@ namespace SpeedyWings
 
         {
 
-            mainWin.AfficherJeu();
+            mainWindow.AfficherJeu();
 
         }
 
@@ -37,7 +37,7 @@ namespace SpeedyWings
 
         {
 
-            mainWin.AfficherRegles();
+            mainWindow.AfficherRegles();
 
         }
 
