@@ -14,13 +14,10 @@
                Width="800" Height="450" Canvas.Left="0" Canvas.Top="0"/>
 
         <Image x:Name="ciel2" Source="/Images/Ciel.png" Stretch="Fill" 
-               Width="661" Height="452" Canvas.Left="800" Canvas.Top="0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+               Width="628" Height="452" Canvas.Left="800" Canvas.Top="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         <Image x:Name="imgbatiment" Source="/Images/Batiments.png" Stretch="UniformToFill" 
                Width="800" Height="200" Canvas.Left="0" Canvas.Top="200" Opacity="0.8"/>
-
-        <Image x:Name="imgbatiment2" Source="/Images/Batiments.png" Stretch="UniformToFill" 
-               Width="664" Height="200" Canvas.Left="800" Canvas.Top="200" Opacity="0.8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         <Image x:Name="imgtuyau1" Source="/Images/tuyau.png" Stretch="Fill" 
                Width="72" Height="150" Canvas.Left="400" Canvas.Top="250" />
@@ -62,7 +59,7 @@
                Width="804" Height="438" Canvas.Left="-5" Canvas.Top="10" Panel.ZIndex="10" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         <Image x:Name="imgsol2" Source="/Images/Sol.png" Stretch="Fill" 
-               Width="665" Height="449" Canvas.Left="800" Canvas.Top="1" Panel.ZIndex="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+               Width="636" Height="449" Canvas.Left="789" Canvas.Top="1" Panel.ZIndex="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         <Image x:Name="imgflapy" Source="/Images/FlappyBird.png" Stretch="Uniform" 
                Width="73" Height="52" Canvas.Left="50" Canvas.Top="188" Panel.ZIndex="20" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False"/>

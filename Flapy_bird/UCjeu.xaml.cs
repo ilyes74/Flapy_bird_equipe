@@ -26,6 +26,17 @@ namespace Flapy_bird
             InitializeComponent();
             this.fenetrePrincipale = w;
             InitializeTimer();
+
+            
+           
+            try
+            {
+                imgflapy.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(MainWindow.SkinActuel, UriKind.Relative));
+            }
+            catch
+            {
+             
+        }
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -59,8 +70,7 @@ namespace Flapy_bird
 
             DeplaceDecor(ciel, pasFond);
             DeplaceDecor(ciel2, pasFond);
-            DeplaceDecor(imgbatiment, pasFond);
-            DeplaceDecor(imgbatiment2, pasFond);
+
             DeplaceDecor(imgsol, pasSol);
             DeplaceDecor(imgsol2, pasSol);
 
@@ -181,5 +191,7 @@ namespace Flapy_bird
                 }
             }
         }
+
+
     }
 }

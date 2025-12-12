@@ -60,12 +60,9 @@ namespace Flapy_bird
 
             }
 
-            public void AfficherSkins()
-
-            {
-
-                // ContenuPrincipal.Content = new UCSkins(this); (A faire plus tard)
-
-            }
+        public void AfficherSkins()
+        {
+            ContenuPrincipal.Content = new UCSkin(this);
         }
+    }
     }
