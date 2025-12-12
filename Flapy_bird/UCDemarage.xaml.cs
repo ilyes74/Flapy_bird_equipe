@@ -11,9 +11,8 @@ namespace SpeedyWings
 
     {
 
-        private MainWindow mainWin;
+        private MainWindow mainWindow;
 
-        // Constructeur qui reçoit la fenêtre principale
 
         public UCDemarrage(MainWindow w)
 
@@ -21,7 +20,7 @@ namespace SpeedyWings
 
             InitializeComponent();
 
-            this.mainWin = w;
+            this.mainWindow = w;
 
         }
 
@@ -29,7 +28,7 @@ namespace SpeedyWings
 
         {
 
-            mainWin.AfficherJeu();
+            mainWindow.AfficherJeu();
 
         }
 
@@ -37,7 +36,7 @@ namespace SpeedyWings
 
         {
 
-            mainWin.AfficherRegles();
+            mainWindow.AfficherRegles();
 
         }
 

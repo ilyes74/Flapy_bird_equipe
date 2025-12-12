@@ -11,7 +11,7 @@ namespace SpeedyWings
 
     {
 
-        private MainWindow mainWin;
+        private MainWindow mainWindow;
 
         public UCReglesJeu(MainWindow w)
 
@@ -19,7 +19,7 @@ namespace SpeedyWings
 
             InitializeComponent();
 
-            this.mainWin = w;
+            this.mainWindow = w;
 
         }
 
@@ -27,7 +27,7 @@ namespace SpeedyWings
 
         {
 
-            mainWin.AfficherDemarrage();
+            mainWindow.AfficherDemarrage();
 
         }
 
