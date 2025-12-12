@@ -28,7 +28,7 @@
 
             <Button x:Name="BtnRegles" Content="RÈGLES" Height="50" Width="200" Margin="10" FontSize="20" Click="BtnRegles_Click"/>
 
-            <Button x:Name="BtnSkins" Content="SKINS" Height="50" Width="200" Margin="10" FontSize="20" Click="BtnSkins_Click"/>
+            <Button x:Name="BtnSkins" Content="SKINS" Height="50" Width="200" Margin="10" FontSize="20"/>
 
             <Button x:Name="BtnQuitter" Content="QUITTER" Height="50" Width="200" Margin="10" FontSize="20" Click="BtnQuitter_Click"/>
 
