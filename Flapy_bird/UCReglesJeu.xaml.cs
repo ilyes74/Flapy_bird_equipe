@@ -30,5 +30,10 @@ namespace SpeedyWings
             mainWindow.AfficherDemarrage();
 
         }
+
+        private void VolumeSlider_ChangeVolume(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
