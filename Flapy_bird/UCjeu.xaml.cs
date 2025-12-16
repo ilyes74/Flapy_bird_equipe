@@ -29,14 +29,7 @@ namespace Flapy_bird
 
             
            
-            try
-            {
-                imgflapy.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(MainWindow.SkinActuel, UriKind.Relative));
-            }
-            catch
-            {
-             
-            }
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
