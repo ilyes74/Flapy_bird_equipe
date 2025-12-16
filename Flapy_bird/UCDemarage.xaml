@@ -38,6 +38,14 @@
 
         <Image Margin="573,223,-50,114" Source="/Images/tuyau.png" Stretch="Fill"/>
 
+        <StackPanel>
+
+            <Button x:Name="btnMusique" Height="100" Width="500" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
+                <Image x:Name="btnMusic" Source="/Images/175658.png" Height="108" Width="154" RenderTransformOrigin="0.749,0.5"/>
+            </Button>
+
+
+        </StackPanel>
     </Grid>
 
 </UserControl>
