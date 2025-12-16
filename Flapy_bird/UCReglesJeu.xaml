@@ -13,7 +13,7 @@
 
             <TextBlock Text="RÈGLES DU JEU" FontSize="40" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="20"/>
 
-            <TextBlock Text="1. Appuie sur ESPACE pour voler." FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="5"/>
+            <TextBlock Text="1. Appuie sur ESPACE ou flèche du haut pour voler." FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="5"/>
 
             <TextBlock Text="2. Évite les tuyaux verts." FontSize="20" Foreground="White" HorizontalAlignment="Center" Margin="5"/>
 
