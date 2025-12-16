@@ -21,21 +21,21 @@
                Width="800" Height="200" Canvas.Left="800" Canvas.Top="200" Opacity="0.8"/>
 
 
-        <Image x:Name="imgtuyau1" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="150" Canvas.Left="350" Canvas.Top="250" />
-        <Image x:Name="imgtuyau2" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="150" Canvas.Left="350" Canvas.Top="-20">
+        <Image x:Name="imgtuyau1" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="193" Canvas.Left="350" Canvas.Top="250" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Image x:Name="imgtuyau2" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="132" Canvas.Left="350" Canvas.Top="-20" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Image.RenderTransform>
                 <RotateTransform Angle="180" CenterX="35" CenterY="75"/>
             </Image.RenderTransform>
         </Image>
 
-        <Image x:Name="imgtuyau3" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="120" Canvas.Left="600" Canvas.Top="280"/>
+        <Image x:Name="imgtuyau3" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="162" Canvas.Left="600" Canvas.Top="280" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Image x:Name="imgtuyau4" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="150" Canvas.Left="600" Canvas.Top="-10">
             <Image.RenderTransform>
                 <RotateTransform Angle="180" CenterX="35" CenterY="75"/>
             </Image.RenderTransform>
         </Image>
 
-        <Image x:Name="imgtuyau5" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="140" Canvas.Left="850" Canvas.Top="270"/>
+        <Image x:Name="imgtuyau5" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="166" Canvas.Left="850" Canvas.Top="270" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Image x:Name="imgtuyau6" Source="/Images/tuyau.png" Stretch="Fill" Width="70" Height="140" Canvas.Left="850" Canvas.Top="-10">
             <Image.RenderTransform>
                 <RotateTransform Angle="180" CenterX="35" CenterY="70"/>
