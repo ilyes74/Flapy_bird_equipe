@@ -22,7 +22,7 @@ namespace Flapy_bird
     {
         MainWindow fenetrePrincipale;
 
-        public UCSkin(MainWindow w)
+        public UcSkin(MainWindow w)
         {
             InitializeComponent();
             this.fenetrePrincipale = w;

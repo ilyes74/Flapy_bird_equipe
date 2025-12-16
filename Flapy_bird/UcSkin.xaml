@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Height="450" Width="800">
 
-    <Grid Background="#87CEEB">
+    <Grid >
+        <Image Source="/Images/Ciel.png" Stretch="UniformToFill" Margin="0,0,2,-129"/>
         <TextBlock Text="CHOISIS TON OISEAU" FontSize="40" FontWeight="Bold" 
                    HorizontalAlignment="Center" Margin="0,50,0,0" Foreground="White"/>
 

@@ -36,7 +36,7 @@ namespace Flapy_bird
             catch
             {
              
-        }
+            }
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
