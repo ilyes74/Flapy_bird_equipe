@@ -1,14 +1,13 @@
 ﻿<Window x:Class="Flapy_bird.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Speedy Wings" 
-        Height="600" Width="800"
-        WindowState="Maximized" 
-        WindowStyle="None">
-    <Viewbox Stretch="Uniform">
+        Title="Flappy Bird" 
+        Height="500" Width="900"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="CanResize">
 
-        <ContentControl x:Name="ContenuPrincipal" Width="800" Height="600" />
-
-    </Viewbox>
-
+    <Grid>
+        <ContentControl x:Name="ContenuPrincipal"/>
+    </Grid>
 </Window>

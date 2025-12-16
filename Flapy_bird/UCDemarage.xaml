@@ -4,7 +4,7 @@
 
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 
-  Height="600" Width="800">
+Height="500" Width="900">
 
     <Grid>
 
@@ -34,7 +34,7 @@
 
         </StackPanel>
 
-        <Image Margin="34,231,595,151" Source="/Images/FlappyBird.png" Stretch="Fill"/>
+        <Image Margin="18,187,611,127" Source="/Images/FlappyBird.png" Stretch="Fill"/>
 
         <Image Margin="573,223,-50,114" Source="/Images/tuyau.png" Stretch="Fill"/>
 

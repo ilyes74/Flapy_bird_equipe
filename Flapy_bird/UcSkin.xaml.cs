@@ -1,44 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Threading;
 
 namespace Flapy_bird
 {
-    
     public partial class UcSkin : UserControl
     {
-        private MainWindow fenetrePrincipale;
+        // On crée une variable pour stocker la référence à la fenêtre principale
+        private MainWindow fenetre;
 
+        // Le constructeur reçoit la fenêtre principale (w)
         public UcSkin(MainWindow w)
         {
             InitializeComponent();
-            this.fenetrePrincipale = window;
+            this.fenetre = w;
         }
 
+        // --- 1. CLIC SUR L'OISEAU CLASSIQUE ---
         private void BtnSkin1_Click(object sender, RoutedEventArgs e)
         {
-            // CORRECTION : On utilise l'instance 'fenetrePrincipale', pas la classe 'MainWindow'
-            fenetrePrincipale.SkinActuel = "/Images/FlappyBird.png";
-            MessageBox.Show("Skin Classique sélectionné !");
+            // On définit le skin
+            MainWindow.SkinActuel = "/Images/FlappyBird.png";
+            // On lance le jeu
+            fenetre.AfficherJeu();
         }
 
+        // --- 2. CLIC SUR L'OISEAU ROUGE ---
         private void BtnSkin2_Click(object sender, RoutedEventArgs e)
         {
-            // CORRECTION ICI AUSSI
-            fenetrePrincipale.SkinActuel = "/Images/oiseauRouge.png"; 
-            MessageBox.Show("Skin Rouge sélectionné !");
+            // On définit le skin (vérifie bien le nom de ton image !)
+            MainWindow.SkinActuel = "/Images/oiseauRouge2.png";
+            // On lance le jeu
+            fenetre.AfficherJeu();
         }
 
+        // --- 3. CLIC SUR LE BOUTON RETOUR ---
         private void BtnRetour_Click(object sender, RoutedEventArgs e)
         {
-           
-              fenetrePrincipale.AfficherDemarrage();
+            // On revient au menu de démarrage
+            fenetre.AfficherDemarrage();
         }
     }
 }
