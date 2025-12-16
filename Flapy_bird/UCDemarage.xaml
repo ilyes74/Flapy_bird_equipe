@@ -8,7 +8,7 @@
 
     <Grid>
 
-        <Image Source="/Images/Ciel.png" Stretch="UniformToFill" Margin="0,0,2,-129"/>
+        <Image Source="/Images/Ciel.png" Stretch="Fill" Margin="0,0,2,-123" />
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
@@ -28,7 +28,7 @@
 
             <Button x:Name="BtnRegles" Content="RÈGLES" Height="50" Width="200" Margin="10" FontSize="20" Click="BtnRegles_Click"/>
 
-            <Button x:Name="BtnSkins" Content="SKINS" Height="50" Width="200" Margin="10" FontSize="20"/>
+            <Button x:Name="BtnSkins" Content="SKINS" Height="50" Width="200" Margin="10" FontSize="20" Click="BtnSkins_Click"/>
 
             <Button x:Name="BtnQuitter" Content="QUITTER" Height="50" Width="200" Margin="10" FontSize="20" Click="BtnQuitter_Click"/>
 

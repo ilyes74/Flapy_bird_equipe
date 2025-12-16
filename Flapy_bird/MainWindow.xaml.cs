@@ -12,19 +12,19 @@ using System.Windows.Shapes;
 
 namespace Flapy_bird
 {
-
+    
     public partial class MainWindow : Window
 
     {
+
+        public static string SkinActuel = "/Images/FlappyBird.png";
+
 
         public MainWindow()
 
         {
 
             InitializeComponent();
-
-
-
             AfficherDemarrage();
 
         }
@@ -34,8 +34,6 @@ namespace Flapy_bird
         public void AfficherDemarrage()
 
         {
-
-           
 
             ContenuPrincipal.Content = new UCDemarrage(this);
 
@@ -57,9 +55,9 @@ namespace Flapy_bird
 
         }
 
-        public void AfficherSkins()
+        public void AfficherSkin()
         {
-            ContenuPrincipal.Content = new UCSkin(this);
+            ContenuPrincipal.Content = new UcSkin(this);
         }
     }
     }

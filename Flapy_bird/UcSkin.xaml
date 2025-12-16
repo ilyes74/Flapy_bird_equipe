@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Flapy_bird.UCSkin"
+﻿<UserControl x:Class="Flapy_bird.UcSkin"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Height="450" Width="800">
+             Height="450" Width="800" >
 
-    <Grid Background="#87CEEB">
+    <Grid Background="#87CEEB" >
         <TextBlock Text="CHOISIS TON OISEAU" FontSize="40" FontWeight="Bold" 
                    HorizontalAlignment="Center" Margin="0,50,0,0" Foreground="White"/>
 
@@ -12,7 +12,8 @@
         </Button>
 
         <Button x:Name="btnSkin2" Width="100" Height="100" Margin="150,0,0,0" Click="BtnSkin2_Click">
-            <Image Source="/Images/OiseauRouge.png"/>
+        <Image Source="/Images/OiseauRouge.png" />
+            
         </Button>
 
         <Button Content="RETOUR MENU" Width="200" Height="50" VerticalAlignment="Bottom" Margin="0,0,0,50"

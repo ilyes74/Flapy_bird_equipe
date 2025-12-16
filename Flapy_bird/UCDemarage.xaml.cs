@@ -52,8 +52,8 @@ namespace SpeedyWings
      
         private void BtnSkins_Click(object sender, RoutedEventArgs e)
         {
-            // On appelle la méthode de navigation de MainWindow
-            fenetrePrincipale.AfficherSkins();
+         
+            mainWindow.AfficherSkin();
         }
     }
 

@@ -13,6 +13,7 @@
     <None Remove="Images\Ciel.png" />
     <None Remove="Images\FlappyBird.png" />
     <None Remove="Images\Herbes.png" />
+    <None Remove="Images\OiseauRouge.png" />
     <None Remove="Images\Parametre.png" />
     <None Remove="Images\piece.png" />
     <None Remove="Images\piece_sans_fond.png" />
@@ -25,6 +26,7 @@
     <Resource Include="Images\Ciel.png" />
     <Resource Include="Images\FlappyBird.png" />
     <Resource Include="Images\Herbes.png" />
+    <Resource Include="Images\OiseauRouge.png" />
     <Resource Include="Images\Parametre.png" />
     <Resource Include="Images\piece.png" />
     <Resource Include="Images\piece_sans_fond.png" />

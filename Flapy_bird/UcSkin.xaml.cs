@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Flapy_bird
 {
-    /// <summary>
-    /// Logique d'interaction pour UcSkin.xaml
-    /// </summary>
+    
     public partial class UcSkin : UserControl
     {
-        MainWindow fenetrePrincipale;
+        private MainWindow fenetrePrincipale;
 
-        public UCSkin(MainWindow w)
+        public UcSkin(MainWindow w)
         {
             InitializeComponent();
             this.fenetrePrincipale = w;
@@ -45,7 +38,7 @@ namespace Flapy_bird
         private void BtnRetour_Click(object sender, RoutedEventArgs e)
         {
            
-            fenetrePrincipale.AfficherDemarrage();
+              fenetrePrincipale.AfficherDemarrage();
         }
     }
 }
