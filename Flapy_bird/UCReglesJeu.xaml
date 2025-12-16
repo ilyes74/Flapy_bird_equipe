@@ -9,7 +9,7 @@
     <Grid >
         <Image Source="/Images/Ciel.png" Stretch="UniformToFill" Margin="0,0,2,-129"/>
 
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="480">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="301" Width="445">
 
             <TextBlock Text="RÈGLES DU JEU" FontSize="40" Foreground="White" HorizontalAlignment="Center" Margin="20" FontWeight="Bold"/>
 
@@ -23,10 +23,6 @@
 
         </StackPanel>
 
-        <TextBlock Text="CONTROLE DU VOLUME" FontSize="40" Foreground="White" HorizontalAlignment="Center" Margin="0,355,0,-345" FontWeight="Bold"/>
-
-        <Slider x:Name="ChangeVolume" Minimum="0" Maximum="1" Value="0.5" Width="312" Height="72" ValueChanged="VolumeSlider_ChangeVolume" HorizontalAlignment="Center" Margin="0,428,0,0" VerticalAlignment="Top"/> 
-        
 
     </Grid>
 
