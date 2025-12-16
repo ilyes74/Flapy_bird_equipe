@@ -86,7 +86,7 @@ namespace Flapy_bird
             DeplaceObstacle(imgtuyau5, pasSol);
             DeplaceObstacle(imgtuyau6, pasSol);
 
-            // --- Pièces (LES 3) ---
+            // --- Pièces ---
             DeplacePiece(imgpiece1, pasSol);
             DeplacePiece(imgpiece2, pasSol);
             DeplacePiece(imgpiece3, pasSol);
@@ -158,7 +158,7 @@ namespace Flapy_bird
         private void VerifCollision()
         {
             double y = Canvas.GetTop(imgflapy);
-            if (y > 380 || y < -20) { FinDuJeu(); return; }
+            if (y > 380 || y < -10) { FinDuJeu(); return; }
 
             Rect rOiseau = new Rect(Canvas.GetLeft(imgflapy) + 10, y + 10, imgflapy.ActualWidth - 20, imgflapy.ActualHeight - 20);
 
