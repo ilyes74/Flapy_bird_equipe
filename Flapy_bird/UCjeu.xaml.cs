@@ -21,22 +21,15 @@ namespace Flapy_bird
         private double gravite = 0.5;
         private double forceSaut = -8;
 
-        public UCjeu(MainWindow w)
+        public UCjeu(MainWindow window)
         {
             InitializeComponent();
-            this.fenetrePrincipale = w;
+            this.fenetrePrincipale = window;
             InitializeTimer();
 
             
            
-            try
-            {
-                imgflapy.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(MainWindow.SkinActuel, UriKind.Relative));
-            }
-            catch
-            {
-             
-        }
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

@@ -6,7 +6,8 @@
 
   Height="600" Width="800">
 
-    <Grid Background="#4EC0CA">
+    <Grid >
+        <Image Source="/Images/Ciel.png" Stretch="UniformToFill" Margin="0,0,2,-129"/>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 

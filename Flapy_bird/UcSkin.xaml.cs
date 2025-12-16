@@ -18,20 +18,20 @@ namespace Flapy_bird
         public UcSkin(MainWindow w)
         {
             InitializeComponent();
-            this.fenetrePrincipale = w;
+            this.fenetrePrincipale = window;
         }
 
         private void BtnSkin1_Click(object sender, RoutedEventArgs e)
         {
-           
-            MainWindow.SkinActuel = "/Images/FlappyBird.png";
+            // CORRECTION : On utilise l'instance 'fenetrePrincipale', pas la classe 'MainWindow'
+            fenetrePrincipale.SkinActuel = "/Images/FlappyBird.png";
             MessageBox.Show("Skin Classique sélectionné !");
         }
 
         private void BtnSkin2_Click(object sender, RoutedEventArgs e)
         {
-            
-            MainWindow.SkinActuel = "/Images/OiseauRouge.png"; 
+            // CORRECTION ICI AUSSI
+            fenetrePrincipale.SkinActuel = "/Images/oiseauRouge.png"; 
             MessageBox.Show("Skin Rouge sélectionné !");
         }
 

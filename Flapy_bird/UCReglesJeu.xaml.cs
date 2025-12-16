@@ -13,13 +13,13 @@ namespace SpeedyWings
 
         private MainWindow mainWindow;
 
-        public UCReglesJeu(MainWindow w)
+        public UCReglesJeu(MainWindow window)
 
         {
 
             InitializeComponent();
 
-            this.mainWindow = w;
+            this.mainWindow = window;
 
         }
 

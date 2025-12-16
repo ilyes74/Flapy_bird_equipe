@@ -59,5 +59,6 @@ namespace Flapy_bird
         {
             ContenuPrincipal.Content = new UcSkin(this);
         }
+        public string SkinActuel = "/Images/FlappyBird.png";
     }
     }

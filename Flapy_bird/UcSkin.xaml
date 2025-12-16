@@ -3,18 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Height="450" Width="800" >
 
-    <Grid Background="#87CEEB" >
+    <Grid>
+        <Image Source="/Images/Ciel.png" Stretch="UniformToFill" Margin="0,0,2,-129" Opacity="0.5"/>
+
         <TextBlock Text="CHOISIS TON OISEAU" FontSize="40" FontWeight="Bold" 
-                   HorizontalAlignment="Center" Margin="0,50,0,0" Foreground="White"/>
+                   HorizontalAlignment="Center" Margin="0,50,0,0" Foreground="White">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
 
-        <Button x:Name="btnSkin1" Width="100" Height="100" Margin="-150,0,0,0" Click="BtnSkin1_Click">
-            <Image Source="/Images/FlappyBird.png"/>
-        </Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-        <Button x:Name="btnSkin2" Width="100" Height="100" Margin="150,0,0,0" Click="BtnSkin2_Click">
-        <Image Source="/Images/OiseauRouge.png" />
-            
-        </Button>
+            <StackPanel Margin="20">
+                <Button x:Name="btnSkin1" Width="100" Height="100" Click="BtnSkin1_Click" Background="Transparent" BorderThickness="0">
+                    <Image Source="/Images/FlappyBird.png"/>
+                </Button>
+                <TextBlock Text="Classique" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+
+
+            <StackPanel Margin="20">
+                <Button x:Name="btnSkin2" Width="100" Height="100" Click="BtnSkin2_Click" Background="Transparent" BorderThickness="0">
+                    <Image Source="/Images/oiseauRouge2.png" />
+                </Button>
+                <TextBlock Text="Rouge" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </StackPanel>
+
+        </StackPanel>
 
         <Button Content="RETOUR MENU" Width="200" Height="50" VerticalAlignment="Bottom" Margin="0,0,0,50"
                 FontSize="20" Click="BtnRetour_Click"/>
