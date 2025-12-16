@@ -16,7 +16,8 @@ namespace Flapy_bird
     public partial class MainWindow : Window
 
     {
-
+        public MediaPlayer GameMediaPlayer
+            { get; private set; } = new MediaPlayer();
         public static string SkinActuel = "/Images/FlappyBird.png";
 
 

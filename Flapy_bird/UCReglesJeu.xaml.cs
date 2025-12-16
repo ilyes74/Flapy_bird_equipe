@@ -30,7 +30,5 @@ namespace SpeedyWings
             mainWindow.AfficherDemarrage();
 
         }
-
     }
-
 }
