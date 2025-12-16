@@ -13,7 +13,7 @@
         </Button>
 
         <Button x:Name="btnSkin2" Width="100" Height="100" Margin="150,0,0,0" Click="BtnSkin2_Click">
-            <Image Source="/Images/OiseauRouge.png"/>
+            <Image Source="/Images/oiseauRouge.png"/>
         </Button>
 
         <Button Content="RETOUR MENU" Width="200" Height="50" VerticalAlignment="Bottom" Margin="0,0,0,50"

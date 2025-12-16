@@ -58,5 +58,6 @@ namespace Flapy_bird
         {
             ContenuPrincipal.Content = new UcSkin(this);
         }
+
     }
     }

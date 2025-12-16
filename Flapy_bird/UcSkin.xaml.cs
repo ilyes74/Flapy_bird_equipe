@@ -22,10 +22,10 @@ namespace Flapy_bird
     {
         MainWindow fenetrePrincipale;
 
-        public UcSkin(MainWindow w)
+        public UcSkin(MainWindow window)
         {
             InitializeComponent();
-            this.fenetrePrincipale = w;
+            this.fenetrePrincipale = window;
         }
 
         private void BtnSkin1_Click(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace Flapy_bird
         private void BtnSkin2_Click(object sender, RoutedEventArgs e)
         {
             
-            MainWindow.SkinActuel = "/Images/OiseauRouge.png"; 
+            MainWindow.SkinActuel = "/Images/oiseauRouge.png"; 
             MessageBox.Show("Skin Rouge sélectionné !");
         }
 

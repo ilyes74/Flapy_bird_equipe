@@ -15,13 +15,13 @@ namespace SpeedyWings
 
   
 
-        public UCDemarrage(MainWindow w)
+        public UCDemarrage(MainWindow window)
 
         {
 
             InitializeComponent();
 
-            this.mainWindow = w;
+            this.mainWindow = window;
 
         }
 
