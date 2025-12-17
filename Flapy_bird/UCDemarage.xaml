@@ -38,9 +38,9 @@ Height="500" Width="900">
 
         <Image Margin="573,223,-50,114" Source="/Images/tuyau.png" Stretch="Fill"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Click="Button_Click" Height="100" Width="194" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
-                <Image Source="/Images/Volume.png" Height="100" Width="194" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <StackPanel x:Name="spBtn" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnSon" Click="Button_Click" Height="100" Width="194" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
+                <Image x:Name="imgSon" Source="/Images/Volume.png" Height="100" Width="194" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             </Button>
         </StackPanel>
     </Grid>
