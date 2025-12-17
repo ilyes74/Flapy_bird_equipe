@@ -20,6 +20,7 @@
     <None Remove="Images\piece_sans_fond.png" />
     <None Remove="Images\Sol.png" />
     <None Remove="Images\tuyau.png" />
+    <None Remove="Images\Volume.png" />
     <None Remove="Sons\The Swiss - Bubble Bath.wav" />
   </ItemGroup>
 
@@ -35,6 +36,7 @@
     <Resource Include="Images\piece_sans_fond.png" />
     <Resource Include="Images\Sol.png" />
     <Resource Include="Images\tuyau.png" />
+    <Resource Include="Images\Volume.png" />
     <Resource Include="Sons\The Swiss - Bubble Bath.wav" />
   </ItemGroup>
 

@@ -40,7 +40,7 @@ Height="500" Width="900">
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Click="Button_Click" Height="100" Width="194" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" FlowDirection="RightToLeft">
-                <Image Source="C:\Users\paolo\Documents\BUT INFO\DEVELOPPEMENT\SAE\Flapy_bird\Images\Volume.png" Height="100" Width="194" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <Image Source="/Images/Volume.png" Height="100" Width="194" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
             </Button>
         </StackPanel>
     </Grid>
