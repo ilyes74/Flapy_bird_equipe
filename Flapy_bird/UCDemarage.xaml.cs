@@ -58,7 +58,7 @@ namespace SpeedyWings
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(@"P:\BUT INFO\S1\R1_01_InitiationDev_C#\Sequence_Github\SpeedyWingsFinal\Flapy_bird\Sons\The Swiss - Bubble Bath.wav");
+            SoundPlayer player = new SoundPlayer(@"P:\\BUT INFO\\S1\\R1_01_InitiationDev_C#\\Sequence_Github\\SpeedyWingsFinal\\Flapy_bird\\Sons\\The Swiss - Bubble Bath.wav");
             player.Load();
             player.Play();
         }
